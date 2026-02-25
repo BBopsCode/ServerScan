@@ -1,6 +1,7 @@
 plugins {
-	id 'net.fabricmc.fabric-loom-remap' version "${loom_version}"
-	id 'maven-publish'
+    // Switch back to the STANDARD loom plugin so remapJar runs!
+    id 'fabric-loom' version '1.14.0-alpha.31'
+    id 'maven-publish'
 }
 
 version = project.mod_version
@@ -19,26 +20,18 @@ repositories {
 }
 
 loom {
-	splitEnvironmentSourceSets()
-
-	mods {
-		"modid" {
-			sourceSet sourceSets.main
-			sourceSet sourceSets.client
-		}
-	}
-
 }
 
 dependencies {
-	// To change the versions see the gradle.properties file
-	minecraft "com.mojang:minecraft:${project.minecraft_version}"
-	mappings loom.officialMojangMappings()
-	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
-
-	// Fabric API. This is technically optional, but you probably want it anyway.
-	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-	
+    // Use the standard 1.21.11 jar
+    minecraft "com.mojang:minecraft:1.21.11"
+    
+    // This magic line tells Loom to read your Mojang code but build an Intermediary jar
+    mappings loom.officialMojangMappings()
+    
+    // I noticed you are actually on loader 0.18.4 in your crash log! Let's match it.
+    modImplementation "net.fabricmc:fabric-loader:0.18.4"
+    modImplementation "net.fabricmc.fabric-api:fabric-api:0.141.2+1.21.11"
 }
 
 processResources {

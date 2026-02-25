@@ -1,0 +1,11 @@
+﻿Compiled from "ConnectScreen.java"
+public class net.minecraft.client.gui.screens.ConnectScreen extends net.minecraft.client.gui.screens.Screen {
+  public static final net.minecraft.network.chat.Component ABORT_CONNECTION;
+  public static final net.minecraft.network.chat.Component UNKNOWN_HOST_MESSAGE;
+  public static void startConnecting(net.minecraft.client.gui.screens.Screen, net.minecraft.client.Minecraft, net.minecraft.client.multiplayer.resolver.ServerAddress, net.minecraft.client.multiplayer.ServerData, boolean, net.minecraft.client.multiplayer.TransferState);
+  public void tick();
+  public boolean shouldCloseOnEsc();
+  protected void init();
+  public void render(net.minecraft.client.gui.GuiGraphics, int, int, float);
+  static {};
+}

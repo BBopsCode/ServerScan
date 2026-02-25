@@ -1,0 +1,14 @@
+{
+    "required": true,
+    "package": "com.serverscan.mixin",
+    "compatibilityLevel": "JAVA_21",
+    "refmap": "serverscan.refmap.json",
+    "client": [
+        "ClientPlayNetworkHandlerMixin",
+        "DisconnectedScreenMixin",
+        "TitleScreenMixin"
+    ],
+    "injectors": {
+        "defaultRequire": 1
+    }
+}

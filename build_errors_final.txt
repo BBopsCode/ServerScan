@@ -1,0 +1,32 @@
+
+> Configure project :
+Fabric Loom: 1.14.0-alpha.31
+
+> Task :compileJava FAILED
+C:\Users\goofy\IdeaProjects\ServerScan\src\main\java\com\goofy\serverscan\mixin\ClientPlayNetworkHandlerMixin.java:29: error: cannot find symbol
+            int players = handler.getListedPlayerInfos().size();
+                                 ^
+  symbol:   method getListedPlayerInfos()
+  location: variable handler of type ClientPacketListener
+1 error
+
+[Incubating] Problems report is available at: file:///C:/Users/goofy/IdeaProjects/ServerScan/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':compileJava'.
+> Compilation failed; see the compiler output below.
+  C:\Users\goofy\IdeaProjects\ServerScan\src\main\java\com\goofy\serverscan\mixin\ClientPlayNetworkHandlerMixin.java:29: error: cannot find symbol
+              int players = handler.getListedPlayerInfos().size();
+                                   ^
+    symbol:   method getListedPlayerInfos()
+    location: variable handler of type ClientPacketListener
+  1 error
+
+* Try:
+> Check your code and dependencies to fix the compilation error(s)
+> Run with --scan to generate a Build Scan (powered by Develocity).
+
+BUILD FAILED in 1s
+1 actionable task: 1 executed

@@ -1,0 +1,11 @@
+{
+    "required": true,
+    "package": "com.goofy.serverscan.mixin",
+    "compatibilityLevel": "JAVA_21",
+    "client": [
+        "JoinMultiplayerScreenMixin"
+    ],
+    "injectors": {
+        "defaultRequire": 1
+    }
+}

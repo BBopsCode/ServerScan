@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls:*)",
+      "Bash(jar tf:*)",
+      "Bash(unzip:*)",
+      "Bash(python3:*)"
+    ]
+  }
+}

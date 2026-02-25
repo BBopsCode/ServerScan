@@ -1,0 +1,14 @@
+{
+    "mappings": {
+        "com/serverscan/mixin/TitleScreenMixin": {
+            "net/minecraft/client/gui/screens/TitleScreen": "net/minecraft/client/gui/screens/TitleScreen"
+        },
+        "com/serverscan/mixin/DisconnectedScreenMixin": {
+            "net/minecraft/client/gui/screens/DisconnectedScreen": "net/minecraft/client/gui/screens/DisconnectedScreen"
+        },
+        "com/serverscan/mixin/ClientPlayNetworkHandlerMixin": {
+            "net/minecraft/client/multiplayer/ClientPacketListener": "net/minecraft/client/multiplayer/ClientPacketListener"
+        }
+    },
+    "data": {}
+}
