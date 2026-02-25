@@ -19,31 +19,36 @@ public abstract class JoinMultiplayerScreenMixin extends Screen {
 
     @Unique
     private Button scanButton;
+    @Unique
+    private Button sortButton;
 
     protected JoinMultiplayerScreenMixin(Component title) {
         super(title);
     }
 
     @Inject(method = "init", at = @At("TAIL"))
-    private void addScanButton(CallbackInfo ci) {
+    private void addCustomButtons(CallbackInfo ci) {
+        // Your existing Scanner Button
         this.scanButton = Button.builder(Component.literal(ScannerController.getProgressText()), button -> {
             if (!ScannerController.active) {
-                Path path = Minecraft.getInstance().gameDirectory.toPath().resolve("servers.json");
-                ScannerController.start(path);
+                ScannerController.start(Minecraft.getInstance().gameDirectory.toPath().resolve("servers.json"));
             } else {
                 ScannerController.active = false;
-                button.setMessage(Component.literal("Scan Cancelled"));
             }
-        })
-        .bounds(5, 5, 120, 20)
-        .build();
+        }).bounds(5, 5, 100, 20).build();
+
+        // THE NEW FAST-SORT BUTTON
+        this.sortButton = Button.builder(Component.literal("Fast Ping & Sort"), button -> {
+            ScannerController.fastPingAndSort(Minecraft.getInstance());
+        }).bounds(110, 5, 100, 20).build();
         
         this.addRenderableWidget(this.scanButton);
+        this.addRenderableWidget(this.sortButton);
     }
 
     @Inject(method = "tick", at = @At("TAIL"))
-    private void updateButtonText(CallbackInfo ci) {
-        if (this.scanButton != null && ScannerController.active) {
+    private void updateUI(CallbackInfo ci) {
+        if (this.scanButton != null) {
             this.scanButton.setMessage(Component.literal(ScannerController.getProgressText()));
         }
     }
